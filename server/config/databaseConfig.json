@@ -1,0 +1,9 @@
+{
+    "config": {
+        "host": "127.0.0.1",
+        "id": "root",
+        "password": "9449966Ab",
+        "databaseName": "cuckoo",
+        "dbType": 0
+    }
+}
