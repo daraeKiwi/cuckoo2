@@ -18,8 +18,30 @@ class RegisterMenu extends Component {
         super(props);
         
         this.state = {
-        
+            menu: null,
+            recipe: null,
         }
+    }
+
+    onChangeMenu = (event) => {
+        this.setState({menu: event.target.value})
+    }
+
+    onChangeRecipe = (event) => {
+        this.setState({recipe: event.target.value})
+    }
+
+    onBlurMenu = () => {
+        const menu = this.state.menu;
+
+        // 중복검사
+        
+        console.log("menuN: " + menu);
+    }
+
+    onClickRegister = () => {
+        const menu = this.state.menu;
+        const recipe = this.state.recipe;
     }
 
     onClickCancle = () => {
@@ -59,6 +81,8 @@ class RegisterMenu extends Component {
                                     label="메뉴 이름"
                                     name="name"
                                     autoComplete="name"
+                                    onChange={this.onChangeMenu}
+                                    onBlur={this.onBlurMenu}
                                 />
                             </Grid>
 
@@ -81,6 +105,7 @@ class RegisterMenu extends Component {
                                     multiline
                                     rows={4}
                                     defaultValue=""
+                                    onChange={this.onChangeRecipe}
                                 />
                             </Grid>
             
@@ -89,7 +114,7 @@ class RegisterMenu extends Component {
 
                              
                                     <div style={{"float": "right"}}>
-                                        <Button variant="contained" style={{"marginRight": "10px"}}>등록</Button>
+                                        <Button variant="contained" style={{"marginRight": "10px"}} onClick={() => this.onClickRegister()}>등록</Button>
 
                                         <Button variant="contained" onClick={() => this.onClickCancle()}>취소</Button>
                                     </div>
